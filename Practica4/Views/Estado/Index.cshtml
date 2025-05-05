@@ -1,0 +1,99 @@
+﻿
+@model IEnumerable<Practica4.Models.Estado>
+
+	@{
+		ViewBag.Title = "Lista de Estados";
+
+	}
+
+
+			<div class="card">
+				<div class="card-header">
+					<span class="card-title fs-5">
+						Lista de Estado
+					</span>
+			<a asp-action="Create" class="btn btn-primary float-end">
+				Nuevo
+			</a>
+				</div>
+				<div class="table-reponsive">
+					<table class="table table-bordered table-striped table-hover">
+						<thead>
+							<tr>
+								<th>
+									@Html.DisplayNameFor(Model => Model.Name)
+								</th>
+								
+							
+								<th>
+									 @Html.DisplayNameFor(Model => Model.Descripcion)
+								</th>
+					           
+				           
+								<th>
+									@Html.DisplayNameFor(Model => Model.Color)
+								</th>
+								
+							
+								<th>
+									@Html.DisplayNameFor(Model => Model.CreateAt)
+								</th>
+				            
+								<th>
+									@Html.DisplayNameFor(Model => Model.UpdateAt)
+								</th>
+
+								<th>Opciones</th>
+					            
+				            </tr>
+						</thead>
+						<tbody>
+							@if (Model.Count()>0){
+					@foreach (var item in Model)
+					{
+						<tr>
+							<td>
+								@Html.DisplayFor(modelItem => item.Name)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Descripcion)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Color)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.CreateAt)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.UpdateAt)
+							</td>
+							<td>
+								<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">
+									Editar
+								</a>
+								<a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">
+									Detalle
+								</a>
+								<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">
+									Eliminar
+								</a>
+							</td>
+
+						</tr>
+					}
+							}else {
+								<tr>
+								<td colspan="6">
+									No hay registro
+								</td>
+								</tr>
+							}
+
+						
+						</tbody>
+    
+                     </table>
+
+				</div>
+			</div>
+

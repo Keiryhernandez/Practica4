@@ -14,7 +14,7 @@ namespace Practica4.Models
 
         [StringLength(255)]
         [Display(Name = "Descripcion")]
-        public int? Descripcion { get; set; }
+        public string Descripcion { get; set; }
 
         [StringLength(20)]
         [Display(Name= "Color")]
